@@ -4,11 +4,11 @@ A makefile is provided as an example for combining the config back and how inter
 
 ### Usage Examples
 ```shell
-make up VARIANT=pg AUTO_UPDATE=true
-make down VARIANT=pg_web AUTO_UPDATE=true
-make up VARIANT=pg_web AUTO_UPDATE=false
-make down VARIANT=pg AUTO_UPDATE=true
-make up VARIANT=mariadb AUTO_UPDATE=true
+make up   VARIANT=pg      AUTO_UPDATE=true
+make down VARIANT=pg_web  AUTO_UPDATE=true
+make up   VARIANT=pg_web  AUTO_UPDATE=false
+make down VARIANT=pg      AUTO_UPDATE=true
+make up   VARIANT=mariadb AUTO_UPDATE=true
 make down VARIANT=mariadb
 ```
 
