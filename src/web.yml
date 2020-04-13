@@ -1,0 +1,21 @@
+version: "3.5" 
+services:
+  testweb:
+    image: "gitea/gitea:${GITEA_VERSION}"
+    restart: always
+    environment:
+      - DB_HOST=testdb:5432
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWD=${DB_PASS}
+    volumes:
+      - test_volume_for_web:/data
+    ports:
+      - "${GITEA_SVC_PORT}:3000"
+      - "${GITEA_SSH_PORT}:22"
+    networks:
+      - ${NETWORK_NAME}
+
+volumes:
+  test_volume_for_web:
+    driver: local

@@ -1,0 +1,20 @@
+version: "3.5" 
+services:
+ testdb:
+    image: "mariadb:${MARIADB_VERSION}"
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD="${DB_ROOT_PASS}"
+      - MYSQL_DATABASE="${DB_NAME}"
+      - MYSQL_USER="${DB_USER}"
+      - MYSQL_PASSWORD="${DB_PASS}"
+    volumes:
+      - volume_for_mariadb:/var/lib/mysql
+    networks:
+      - "${NETWORK_NAME}"
+
+volumes:
+  volume_for_mariadb:
+    driver: local
+

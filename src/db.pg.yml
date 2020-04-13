@@ -1,0 +1,18 @@
+version: "3.5" 
+services:
+ testdb:
+    image: "postgres:${PG_VERSION}"
+    restart: always
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - volume_for_postgresdb:/var/lib/postgresql/data
+    networks:
+      - "${NETWORK_NAME}"
+
+volumes:
+  volume_for_postgresdb:
+    driver: local
+

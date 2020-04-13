@@ -1,0 +1,4 @@
+version: "3.5" 
+networks:
+  internal_network:
+    external: false
